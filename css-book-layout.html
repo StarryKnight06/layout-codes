@@ -98,7 +98,7 @@
             margin: 0 auto;
 
             margin-top: 35px;
-            background-image: url('/images/bg-divs-borders/bg-texture-paper.png');
+            background-image: url('https://file.garden/Z8dMSgHDZg9jLhx5/layout-tuto/bg-texture-paper.png');
             box-shadow: 2px 2px 2px #57443E;
             padding: 10px;
         }
@@ -129,7 +129,7 @@
             width: auto;
             min-height: var(--minimum-page-height) !important;
             box-shadow: 0px 0px 2px #574539;
-            background-image: url('/images/bg-divs-borders/bg-lined-paper-grey.gif');
+            background-image: url('https://file.garden/Z8dMSgHDZg9jLhx5/layout-tuto/bg-lined-paper-grey.gif');
 
             /* keeps the leftpage, line, and rightpage within the container */
             display: grid;
@@ -160,8 +160,8 @@
             box-shadow: 0px 0px 10px #2e2a27;
         }
 
-        .leftpage,
-        .rightpage {
+        #leftpage,
+        #rightpage {
             /* change the height here */
             min-height: 500px;
             max-height: 550px;
@@ -170,18 +170,18 @@
             position: relative;
         }
 
-        .leftpage {
+        #leftpage {
             padding-left: 20px;
             padding-right: 10px;
         }
 
-        .rightpage {
+        #rightpage {
             padding-left: 20px;
             padding-right: 10px;
         }
 
-        .leftpage>section,
-        .rightpage>section {
+        #leftpage>section,
+        #rightpage>section {
             /* causes the page to scroll if content goes off the page */
             overflow-y: scroll;
             max-height: 500px;
@@ -217,8 +217,8 @@
         /* mobile friendly code */
         @media only screen and (max-width: 800px) {
 
-            .leftpage,
-            .rightpage {
+            #leftpage,
+            #rightpage {
                 max-height: auto !important;
             }
 
@@ -244,7 +244,7 @@
         <div id="page1">
             <div id="page2">
                 <main id="page3">
-                    <div class="leftpage">
+                    <div id="leftpage">
                         <section>
                             <h1>CSS Book Layout</h1>
                             <p>
@@ -258,7 +258,7 @@
                                 The layout is also mobile friendly and should look okay on different screen sizes!
                             </p>
                             <p>
-                                Get the code here: <a href="" target="_blank">Github</a> // <a
+                                Get the code here: <a href="https://github.com/StarryKnight06/layout-codes/blob/main/css-book-layout.html" target="_blank">Github</a> // <a
                                     href="https://starry-knight.neocities.org/">Return to my homepage</a>
                             </p>
                             <h3>Graphics for your book</h3>
@@ -278,7 +278,7 @@
                         </p>
                     </div>
                     <div id="line"></div>
-                    <div class="rightpage">
+                    <div id="rightpage">
                         <section>
                             <h4>Scrolling Page Example</h4>
                             <p>
