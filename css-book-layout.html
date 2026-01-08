@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- change the title of the tab here-->
+    <title>CSS Book Layout</title>
+
+    <!-- change the icon on the tab here -->
+    <link rel="icon" href="your ico image here">
+
+    <!-- you can copy and paste everything within <style> into a css file and link it here -->
+    <link rel="stylesheet" type="text/css" href="your css file here">
+    <style>
+        :root {
+            /* background colors */
+            --page-background-color: #f3fad1;
+            --cover-color: #91697b;
+            --background: url("https://foollovers.com/mat/plaid02/d05-bg-checked.gif");
+
+            /* text colors */
+            --text-color: #503317;
+            --header-color: #235c2e;
+            --header-shadow: 5px 5px #d0f0cc;
+            --subheader-color: #492c10;
+            --subheader-shadow: 5px 5px #eee7cc;
+
+            /* fonts */
+            --font: Georgia, serif;
+            --header-font: Georgia;
+            --subheader-font: Georgia;
+            --font-size: 14.5px;
+
+            --minimum-page-height: 100px;
+            --pages-border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: var(--header-font) !important;
+            font-size: 2.2em;
+            color: var(--header-color);
+            text-shadow: var(--header-shadow);
+            margin-top: 20px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--subheader-font);
+            color: var(--subheader-color);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: 1.7em;
+        }
+
+        h3 {
+            font-size: 1.3em;
+        }
+
+        h4 {
+            font-size: 1.2em;
+        }
+
+        h5 {
+            font-size: 1.1em;
+        }
+
+        h6 {
+            font-size: 1em;
+        }
+
+        /* changes the color of bullet points */
+        main li::marker {
+            color: var(--text-color);
+        }
+
+        body {
+            background-image: var(--background);
+        }
+
+        #cover {
+            /* change the width here */
+            max-width: 900px;
+
+            min-height: var(--minimum-page-height);
+            border-radius: var(--pages-border-radius);
+            background-color: var(--cover-color);
+
+            /* centers the page */
+            margin: 0 auto;
+
+            margin-top: 35px;
+            background-image: url('/images/bg-divs-borders/bg-texture-paper.png');
+            box-shadow: 2px 2px 2px #57443E;
+            padding: 10px;
+        }
+
+        #page1 {
+            background-color: var(--page-background-color);
+            border-radius: var(--pages-border-radius);
+            width: auto;
+            min-height: var(--minimum-page-height);
+            padding: 2px;
+            box-shadow: 0px 0px 2px #57443E;
+        }
+
+        #page2 {
+            background-color: var(--page-background-color);
+            border-radius: var(--pages-border-radius);
+            width: auto;
+            min-height: var(--minimum-page-height);
+            box-shadow: 0px 0px 2px #574539;
+            padding: 2px;
+        }
+
+
+        /* this page is on top */
+        #page3 {
+            background-color: var(--page-background-color);
+            border-radius: var(--pages-border-radius);
+            width: auto;
+            min-height: var(--minimum-page-height) !important;
+            box-shadow: 0px 0px 2px #574539;
+            background-image: url('/images/bg-divs-borders/bg-lined-paper-grey.gif');
+
+            /* keeps the leftpage, line, and rightpage within the container */
+            display: grid;
+            grid-template-columns: 10fr 0.2fr 10fr;
+        }
+
+        main p,
+        main ul,
+        main ol {
+            /* main font */
+            color: var(--text-color);
+            font-family: var(--font);
+            line-height: 1.5;
+            font-size: var(--font-size);
+        }
+
+        main ul,
+        main ol {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #line {
+            width: 1.5px;
+            min-height: var(--minimum-page-height);
+            margin: 0 auto;
+            background-color: #A19386;
+            box-shadow: 0px 0px 10px #2e2a27;
+        }
+
+        .leftpage,
+        .rightpage {
+            /* change the height here */
+            min-height: 500px;
+            max-height: 550px;
+
+            border-radius: var(--pages-border-radius);
+            position: relative;
+        }
+
+        .leftpage {
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+
+        .rightpage {
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+
+        .leftpage>section,
+        .rightpage>section {
+            /* causes the page to scroll if content goes off the page */
+            overflow-y: scroll;
+            max-height: 500px;
+        }
+
+        .prev-next-buttons {
+            height: 15px;
+        }
+
+        #next-page,
+        #prev-page {
+            position: absolute;
+            bottom: 15px;
+        }
+
+        #next-page {
+            right: 0;
+            margin-right: 10px;
+        }
+
+        /* yay for flex box */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            /* changes how the images will be spaced*/
+            justify-content: space-evenly;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* mobile friendly code */
+        @media only screen and (max-width: 800px) {
+
+            .leftpage,
+            .rightpage {
+                max-height: auto !important;
+            }
+
+            #page3 {
+                grid-template-columns: auto !important;
+            }
+
+            #cover {
+                height: 100% !important;
+                margin-top: 0px;
+            }
+
+            #line {
+                width: 100%;
+                min-height: 1.2px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cover">
+        <div id="page1">
+            <div id="page2">
+                <main id="page3">
+                    <div class="leftpage">
+                        <section>
+                            <h1>CSS Book Layout</h1>
+                            <p>
+                                This code is based on <a href="https://repth.neocities.org/openbook"
+                                    target="_blank">Repth's Open
+                                    Book Tutorial</a>! I used it for my scrapbook webpage and a couple other places.
+                            </p>
+                            <p>
+                                The original tutorial used the float property for the layout which conflicted with what
+                                I wanted to add. So, I reworked the code with flex grid instead to better fit my needs.
+                                The layout is also mobile friendly and should look okay on different screen sizes!
+                            </p>
+                            <p>
+                                Get the code here: <a href="" target="_blank">Github</a> // <a
+                                    href="https://starry-knight.neocities.org/">Return to my homepage</a>
+                            </p>
+                            <h3>Graphics for your book</h3>
+                            <ul>
+                                <li><a href="https://tentacrafts.neocities.org/" target="_blank">Tentacrafts</a>: a
+                                    collection of stickers, washi tape, and banner pngs you can use to decorate</li>
+                                <li><a href="https://niche.peewee.jp/sozai/entrance.html" target="_blank">Niche (JPN
+                                        site)</a>: really cool lined backgrounds, grids, and dotted backgrounds</li>
+                                <li><a href="https://www.valentinely.cc/sozai" target="_blank">Valentinely's Sozai</a>:
+                                </li>
+                                <li><a href="https://foollovers.com/mat/cloth16.html" target="_blank">Fool Lovers</a>:
+                                    more lined backgrounds. the resources here are also really cute</li>
+                            </ul>
+                        </section>
+                        <p class="prev-next-buttons">
+                            <a href="#" id="prev-page">Previous Page</a>
+                        </p>
+                    </div>
+                    <div id="line"></div>
+                    <div class="rightpage">
+                        <section>
+                            <h4>Scrolling Page Example</h4>
+                            <p>
+                                Jelly beans topping I love dessert I love topping sesame snaps cake cookie. Jelly-o
+                                shortbread jelly-o cake I love. Ice cream pudding donut tiramisu bear claw danish I love
+                                cake I love. Liquorice ice cream cookie gingerbread cupcake sugar plum I love ice cream.
+                                Icing I love tootsie roll dessert chocolate bar chupa chups. Cookie lollipop chupa chups
+                                macaroon sugar plum I love caramels pastry liquorice.
+                            </p>
+                            <p>
+                                Dragée cake soufflé marshmallow tootsie roll. Chocolate cake halvah chocolate pie
+                                liquorice
+                                oat cake. Candy sugar plum chupa chups soufflé chocolate. Sugar plum marzipan sweet
+                                fruitcake donut soufflé gingerbread lollipop croissant.
+                            </p>
+                            <h5>Random header</h5>
+                            <p>
+                                Cake cheesecake tart shortbread bonbon gingerbread. Cotton candy I love I love macaroon
+                                bonbon I love I love. Gummi bears bonbon candy canes sweet roll cake. Cookie I love
+                                jelly
+                                cheesecake jelly beans ice cream liquorice. Chocolate cake icing muffin halvah icing
+                                muffin
+                                fruitcake cupcake.
+                            </p>
+                            <h6>Silly image gallery</h6>
+                            <div class="image-gallery">
+                                <img src="https://placedog.net/100/100?r=1" alt="Placeholder image">
+                                <img src="https://placedog.net/100/100?r=2" alt="Placeholder image">
+                                <img src="https://placedog.net/100/100?r=3" alt="Placeholder image">
+                                <img src="https://placedog.net/100/100?r=4" alt="Placeholder image">
+                            </div>
+                        </section>
+                        <p class="prev-next-buttons">
+                            <a href="#" id="next-page">Next page</a>
+                        </p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
